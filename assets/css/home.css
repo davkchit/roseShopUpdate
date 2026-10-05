@@ -486,6 +486,7 @@ svg { flex: none; }
   overflow-y: auto;
 }
 .menu[hidden] { display: none; }
+.menu { --u: 1.5px; } /* меню вне .page — свой масштаб */
 .menu > * { width: 100%; max-width: 520px; margin-inline: auto; }
 .menu__top { display: flex; align-items: center; justify-content: space-between; height: 56px; }
 .menu .logo { width: 132px; }
