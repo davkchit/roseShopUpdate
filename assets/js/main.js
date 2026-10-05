@@ -18,6 +18,7 @@
     if (e.key === 'Escape' && !menu.hidden) setOpen(false);
   });
   window.addEventListener('resize', function () {
-    if (window.innerWidth > 767 && !menu.hidden) setOpen(false);
+    // бургер скрыт на этой ширине — меню закрываем
+    if (!menu.hidden && getComputedStyle(openBtn).display === 'none') setOpen(false);
   });
 })();
