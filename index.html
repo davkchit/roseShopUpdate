@@ -10,10 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/masks.css">
+  <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body class="home">
 
+<!--SPRITE:start-->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -29,52 +32,54 @@
       <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
       <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
       <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-      <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
       <symbol id="i-vk" viewBox="0 0 24 24"><path d="M3 7h3.2c.2 3.9 1.9 5.6 3.2 5.9V7h3v3.4c1.3-.1 2.6-1.6 3.1-3.4h3c-.5 2.2-2.1 3.8-3.2 4.5 1.1.5 2.9 1.9 3.6 4.5h-3.3c-.6-1.7-1.9-3-3.2-3.1V16h-.4C6.300 16 3.2 13 3 7z" fill="currentColor"/></symbol>
       <symbol id="i-tg" viewBox="0 0 24 24"><path d="M20.5 4.5L3.6 11c-.9.4-.9 1.4 0 1.7l4.200 1.3 1.6 5c.2.6 1 .8 1.5.300l2.300-2.200 4.300 3.200c.6.4 1.400.1 1.600-.6l3-13.100c.2-.9-.6-1.600-1.600-1.100zM9.700 13.800l7.400-5.400-5.900 6.600-.3 2.900z" fill="currentColor"/></symbol>
       <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="currentColor"/><circle cx="12" cy="12" r="3.8" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="16.8" cy="7.2" r="1.1" fill="#fff"/></symbol>
+      <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-hanger" viewBox="0 0 24 24"><path d="M12 8.5V8a2 2 0 1 1 2-2M12 8.5 3 15.2a1 1 0 0 0 .6 1.8h16.8a1 1 0 0 0 .6-1.8L12 8.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     </defs>
   </svg>
+<!--SPRITE:end-->
 
-  <!-- ===== Мобильное меню (вне .page, чтобы fixed работал от окна) ===== -->
+<!--MENU:start-->
   <div class="menu" id="menu" hidden>
     <div class="menu__top">
-      <a class="logo" href="index.html"><img src="assets/img/logo.png" alt="Южный" width="1194" height="329"></a>
+      <a class="menu__logo" href="index.html"><img src="assets/img/logo.png" alt="Южный" width="1194" height="329"></a>
       <button class="menu__close" type="button" aria-label="Закрыть меню" data-menu-close><svg><use href="#i-close"/></svg></button>
     </div>
-    <nav class="menu__list">
+    <nav class="menu__list" aria-label="Меню">
       <a href="#categories" data-menu-close>Категории <svg><use href="#i-chev"/></svg></a>
-      <a href="#about" data-menu-close>О рынке <svg><use href="#i-chev"/></svg></a>
+      <a href="odezhda.html" data-menu-close>Магазин одежды <svg><use href="#i-chev"/></svg></a>
       <a href="#map" data-menu-close>Схема рынка <svg><use href="#i-chev"/></svg></a>
-      <a href="#route" data-menu-close>Как добраться <svg><use href="#i-chev"/></svg></a>
       <a href="#contacts" data-menu-close>Контакты <svg><use href="#i-chev"/></svg></a>
     </nav>
-    <a class="btn btn--yellow menu__cta" href="#search" data-menu-close>Найти товар <svg class="ic"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn--orange menu__cta" href="#route" data-menu-close><svg class="ic"><use href="#i-route"/></svg>Как добраться<svg class="ic"><use href="#i-arrow"/></svg></a>
+    <p class="menu__meta">Ахметшина, 115 · Ежедневно 9:00–17:00</p>
   </div>
+<!--MENU:end-->
 
-  <div class="page">
+  <div class="page" id="top">
 
-    <!-- ===== Шапка ===== -->
-    <header class="hdr">
-      <div class="frame hdr__in">
-        <a class="logo" href="index.html" aria-label="Южный — на главную">
+<!--HEADER:start-->
+    <header class="hdr" data-hdr>
+      <div class="hdr__in">
+        <a class="hdr__logo" href="index.html" aria-label="Южный — на главную">
           <img src="assets/img/logo.png" alt="Южный" width="1194" height="329">
         </a>
         <nav class="hdr__nav" aria-label="Основное меню">
           <a href="#categories">Категории</a>
-          <a href="#about">О рынке</a>
+          <a href="odezhda.html">Магазин одежды</a>
           <a href="#map">Схема рынка</a>
-          <a href="#route">Как добраться</a>
           <a href="#contacts">Контакты</a>
         </nav>
-        <a class="hdr__search" href="#search" aria-label="Поиск"><svg><use href="#i-search"/></svg></a>
-        <a class="btn btn--yellow hdr__find" href="#search">Найти товар</a>
+        <a class="btn btn--orange hdr__cta" href="#route">Как добраться <svg class="ic"><use href="#i-arrow"/></svg></a>
         <button class="hdr__burger" type="button" aria-label="Открыть меню" aria-controls="menu" aria-expanded="false" data-menu-open>
-          <svg class="i-grid"><use href="#i-grid"/></svg><svg class="i-menu"><use href="#i-menu"/></svg>
+          <svg><use href="#i-menu"/></svg>
         </button>
       </div>
     </header>
+<!--HEADER:end-->
 
     <main>
       <!-- ===== Первый экран ===== -->
@@ -90,9 +95,9 @@
             <h1 class="hero__title">Всё нужное —<br>в&nbsp;одном месте.</h1>
             <p class="hero__lead">Продукты · Одежда · Обувь · Дом<br>Детские товары · И многое другое</p>
             <p class="addr"><svg><use href="#i-pin"/></svg>Набережные Челны, ул. Ахметшина, 115</p>
-            <form class="search" role="search" action="#categories">
+            <form class="search" role="search" data-search>
               <svg class="search__ic"><use href="#i-search"/></svg>
-              <input type="search" name="q" placeholder="Что ищете?" aria-label="Что ищете?">
+              <input type="search" name="q" placeholder="Что ищете?" aria-label="Что ищете?" autocomplete="off">
               <button type="submit" aria-label="Найти"><svg><use href="#i-arrow"/></svg></button>
             </form>
           </div>
@@ -100,59 +105,74 @@
       </section>
 
       <!-- ===== Категории ===== -->
-      <section class="cats" id="categories">
+      <section class="cats sec" id="categories">
         <div class="frame cats__in">
-          <div class="cats__text">
-            <p class="kicker">Категории</p>
-            <h2 class="h2 cats__title">Что есть<br>на рынке?</h2>
-            <p class="cats__lead">Более 100 павильонов<br>в 3 зданиях. Вы найдёте всё,<br>что нужно для себя и семьи.</p>
-            <a class="cats__more d-only" href="#categories">Смотреть все категории <svg><use href="#i-arrow"/></svg></a>
-            <a class="cats__all m-only" href="#categories">Все категории <svg><use href="#i-arrow"/></svg></a>
-          </div>
-          <div class="cats__grid">
-            <a class="cc cc--food" href="#"><img src="assets/img/home/cat-food.jpg" alt="" loading="lazy"><span class="pill">Продукты <i class="pill__go go--amber"><svg><use href="#i-arrow"/></svg></i></span></a>
-            <a class="cc cc--clothes" href="odezhda.html"><img src="assets/img/home/cat-clothes.jpg" alt="" loading="lazy"><span class="pill">Одежда <i class="pill__go go--orange"><svg><use href="#i-arrow"/></svg></i></span></a>
-            <a class="cc cc--shoes" href="#"><img src="assets/img/home/cat-shoes.jpg" alt="" loading="lazy"><span class="pill">Обувь <i class="pill__go go--plain"><svg><use href="#i-arrow"/></svg></i></span></a>
-            <a class="cc cc--kids" href="#"><img src="assets/img/home/cat-kids.jpg" alt="" loading="lazy"><span class="pill">Детские товары <i class="pill__go go--green"><svg><use href="#i-arrow"/></svg></i></span></a>
-            <a class="cc cc--home" href="#"><img src="assets/img/home/cat-home.jpg" alt="" loading="lazy"><span class="pill">Дом и текстиль <i class="pill__go go--green"><svg><use href="#i-arrow"/></svg></i></span></a>
-            <a class="cc cc--tech m-only" href="#"><img src="assets/img/home/cat-tech.jpg" alt="" loading="lazy"><span class="pill">Электроника <i class="pill__go go--blue"><svg><use href="#i-arrow"/></svg></i></span></a>
+          <div class="sec__head">
+            <div>
+              <p class="kicker">Категории</p>
+              <h2 class="h2">Что есть на рынке?</h2>
+              <p class="sec__lead">Более 100 павильонов в 3 зданиях — всё нужное для себя и семьи.</p>
+            </div>
+            <div class="cats__nav">
+              <button class="round-btn" type="button" data-carousel-prev aria-label="Назад"><svg><use href="#i-chev-l"/></svg></button>
+              <button class="round-btn" type="button" data-carousel-next aria-label="Вперёд"><svg><use href="#i-chev-r"/></svg></button>
+            </div>
           </div>
         </div>
+        <div class="carousel" data-carousel>
+          <ul class="carousel__track" data-carousel-track>
+            <li><a class="cc" href="#" data-q="продукты еда мясо рыба овощи фрукты молоко"><img src="assets/img/cat/produkty.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Продукты <i class="pill__go go--amber"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="odezhda.html" data-q="одежда женская мужская джинсы худи куртки пижамы"><img src="assets/img/cat/odezhda.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Одежда <i class="pill__go go--orange"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="подростковая одежда"><img src="assets/img/cat/podrostkovaya.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Подростковая одежда <i class="pill__go go--orange"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="детская одежда дети"><img src="assets/img/cat/detskaya.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Детская одежда <i class="pill__go go--green"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="обувь кеды кроссовки ботинки"><img src="assets/img/cat/obuv.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Обувь <i class="pill__go go--amber"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="тюли шторы карнизы текстиль дом"><img src="assets/img/cat/tyuli.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Тюли и шторы <i class="pill__go go--green"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="хозтовары бытовая химия посуда дом"><img src="assets/img/cat/hoztovary.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Хозтовары и химия <i class="pill__go go--blue"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="электроника электрика лампы техника"><img src="assets/img/cat/elektro.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Электроника <i class="pill__go go--blue"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="инструменты"><img src="assets/img/cat/instrumenty.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Инструменты <i class="pill__go go--orange"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="военторг камуфляж спецодежда"><img src="assets/img/cat/voentorg.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Военторг <i class="pill__go go--green"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="турецкая бытовая химия"><img src="assets/img/cat/turetskoe.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Турецкая химия <i class="pill__go go--blue"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="игрушки детские товары дети"><img src="assets/img/cat/igrushki.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Игрушки <i class="pill__go go--amber"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+            <li><a class="cc" href="#" data-q="комбикорм корм животные птица"><img src="assets/img/cat/kombikorm.jpg" alt="" loading="lazy" width="640" height="800"><span class="pill">Комбикорм <i class="pill__go go--green"><svg><use href="#i-arrow"/></svg></i></span></a></li>
+          </ul>
+        </div>
+        <p class="cats__empty" data-search-empty hidden>Такой категории пока нет на сайте — спросите в администрации рынка: <a href="tel:+78552473035">+7 (8552) 47-30-35</a></p>
       </section>
 
-      <!-- ===== Товары для всей семьи ===== -->
-      <section class="family" id="about">
-        <div class="frame family__in">
-          <a class="family__photo" href="#categories">
-            <img src="assets/img/home/family.jpg" alt="Продавщица овощей на рынке «Южный». Здесь покупают не только продукты." loading="lazy">
+      <!-- ===== Промо: Магазин одежды ===== -->
+      <section class="promo sec" aria-label="Магазин одежды">
+        <div class="frame">
+          <a class="promo__card" href="odezhda.html">
+            <img class="promo__photo" src="assets/img/promo-odezhda.jpg" alt="Магазин одежды: джинсы, худи и куртки на вешалках" loading="lazy">
+            <span class="promo__body">
+              <img class="promo__decor" src="assets/img/promo-decor.jpg" alt="" aria-hidden="true" loading="lazy">
+              <span class="promo__tag"><svg><use href="#i-hanger"/></svg>Промомагазин</span>
+              <span class="promo__title">Магазин<br>одежды</span>
+              <span class="promo__lead">Женская и мужская одежда, джинсы, худи, куртки, пижамы и многое другое.</span>
+              <span class="btn btn--brown promo__btn">Перейти в магазин <svg class="ic"><use href="#i-arrow"/></svg></span>
+            </span>
           </a>
-          <div class="family__body">
-            <img class="family__deco" src="assets/img/home/sunflower.jpg" alt="" aria-hidden="true" loading="lazy">
-            <h2 class="h2 family__title">Товары для<br>всей семьи.</h2>
-            <p class="family__lead">Одежда, обувь, детские товары, товары для дома, электроника, хозяйственные товары, мебель, текстиль и многое другое.</p>
-            <a class="btn btn--dark family__btn" href="#categories">Все категории <svg class="ic"><use href="#i-arrow"/></svg></a>
-          </div>
-          <a class="family__card" href="#categories">Здесь покупают<br>не только<br>продукты.<svg><use href="#i-arrow"/></svg></a>
         </div>
       </section>
 
       <!-- ===== Схема рынка ===== -->
-      <section class="map" id="map">
+      <section class="map sec" id="map">
         <div class="frame map__in">
-          <div class="map__text">
-            <p class="kicker">Схема рынка</p>
-            <h2 class="h2 map__title"><span class="d-only">Где что<br>находится?</span><span class="m-only">Схема рынка</span></h2>
-            <p class="map__lead">Удобная схема поможет быстро<br>найти нужный павильон или корпус.</p>
-            <a class="btn btn--dark map__btn d-only" href="assets/img/plan.jpg" target="_blank">Открыть схему <svg class="ic"><use href="#i-arrow"/></svg></a>
+          <div class="sec__head">
+            <div>
+              <p class="kicker">Схема рынка</p>
+              <h2 class="h2">Где что находится?</h2>
+              <p class="sec__lead">Три здания на одной территории — схема поможет быстро найти нужный павильон.</p>
+            </div>
+            <a class="btn btn--dark map__btn" href="assets/img/plan.jpg" target="_blank">Открыть схему <svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
           <div class="map__img">
             <img src="assets/img/home/map.jpg" alt="Схема рынка: здание 1 — продукты, здание 2 — промтовары, здание 3 — одежда" loading="lazy">
-            <a class="btn btn--dark map__btn m-only" href="assets/img/plan.jpg" target="_blank">Открыть схему <svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
           <ol class="legend">
-            <li><i class="legend__n n--red">1</i><b>Продукты</b><span>Мясо, рыба, овощи, фрукты,<br>молочная продукция</span></li>
-            <li><i class="legend__n n--yellow">2</i><b>Промтовары</b><span>Одежда, обувь, текстиль,<br>хозтовары, электроника</span></li>
-            <li><i class="legend__n n--green">3</i><b>Вещевой</b><span>Детская одежда, мебель,<br>тюли, шторы</span></li>
+            <li><i class="legend__n n--red">1</i><b>Продукты</b><span>Мясо, рыба, овощи, фрукты, молочная продукция</span></li>
+            <li><i class="legend__n n--yellow">2</i><b>Промтовары</b><span>Одежда, обувь, текстиль, хозтовары, электроника</span></li>
+            <li><i class="legend__n n--green">3</i><b>Вещевой</b><span>Детская одежда, мебель, тюли, шторы</span></li>
           </ol>
         </div>
       </section>
@@ -177,26 +197,32 @@
       </section>
     </main>
 
-    <!-- ===== Подвал ===== -->
+<!--FOOTER:start-->
     <footer class="ftr" id="contacts">
-      <div class="frame ftr__in">
-        <a class="logo" href="index.html"><img src="assets/img/logo.png" alt="Южный" width="1194" height="329"></a>
+      <div class="ftr__card">
+        <div class="ftr__brand">
+          <a class="ftr__logo" href="index.html"><img src="assets/img/logo.png" alt="Южный" width="1194" height="329"></a>
+          <p class="ftr__slogan">Больше, чем просто рынок.</p>
+        </div>
         <nav class="ftr__nav" aria-label="Меню в подвале">
           <a href="#categories">Категории</a>
-          <a href="#about">О рынке</a>
+          <a href="odezhda.html">Магазин одежды</a>
           <a href="#map">Схема рынка</a>
-          <a href="#route">Как добраться</a>
           <a href="#contacts">Контакты</a>
         </nav>
-        <p class="ftr__addr"><svg><use href="#i-pin"/></svg>Набережные Челны, ул. Ахметшина, 115</p>
-        <div class="ftr__soc">
-          <a href="#" aria-label="ВКонтакте"><svg><use href="#i-vk"/></svg></a>
-          <a href="#" aria-label="Telegram"><svg><use href="#i-tg"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+        <div class="ftr__contacts">
+          <p><svg><use href="#i-pin"/></svg>Ахметшина, 115</p>
+          <p><svg><use href="#i-clock"/></svg>Ежедневно 9:00–17:00</p>
+          <div class="ftr__soc">
+            <a href="#" aria-label="ВКонтакте"><svg><use href="#i-vk"/></svg></a>
+            <a href="#" aria-label="Telegram"><svg><use href="#i-tg"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+          </div>
         </div>
-        <p class="ftr__copy">© 2025 Агропромпарк «Южный»</p>
+        <p class="ftr__info">© 2025 Агропромпарк «Южный» · Набережные Челны</p>
       </div>
     </footer>
+<!--FOOTER:end-->
   </div>
 
   <script src="assets/js/main.js"></script>

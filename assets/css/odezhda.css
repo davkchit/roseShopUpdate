@@ -1,53 +1,17 @@
 /* ==========================================================
    Южный — Магазин одежды
 
-   Как и главная, свёрстана в единицах макета: 1 «пиксель макета»
-   = var(--u). Десктоп-макет шириной 1024, мобильный экран — 244.
-   Шрифт Onest — как в макете этой страницы.
+   Свёрстана в единицах макета: 1 «пиксель макета» = var(--u).
+   Десктоп-макет шириной 1024, мобильный экран — 244.
+   Шрифт, кнопки, шапка, меню и подвал — общие, в base.css.
    ========================================================== */
-
-:root {
-  --ink: #111;
-  --text: #2B2B2B;
-  --muted: #6B6760;
-  --line: #E6E1D6;
-  --bg: #FAF8F3;
-  --orange: #F26A21;
-  --orange-d: #E2561A;
-  --yellow: #FCD246;
-  --green: #1F9A4E;
-  --f: "Onest", system-ui, sans-serif;
-  --hand: "Caveat", cursive;
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font: 400 16px/1.4 var(--f);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-h1, h2, p, ol, ul { margin: 0; }
-ol, ul { padding: 0; list-style: none; }
-button { font: inherit; }
-svg { flex: none; }
-
-:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
-.btn:focus-visible, .chips a:focus-visible { border-radius: 999px; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; }
-}
 
 /* ---------- Масштаб ---------- */
 .page {
   container-type: inline-size;
   --u: min(100cqw / 1024, 1.6px);
+  --frame: calc(1024 * var(--u));
+  --pad: calc(49 * var(--u));
 }
 .frame { position: relative; width: calc(1024 * var(--u)); margin: 0 auto; }
 /* сколько места между краем рамки и краем окна (на широких экранах) */
@@ -68,73 +32,6 @@ svg { flex: none; }
 
 /* ---------- Общие ---------- */
 .h2 { font-weight: 800; letter-spacing: -.01em; line-height: 1.1; }
-.btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: calc(7 * var(--u));
-  border: 0;
-  border-radius: 999px;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: background .15s, transform .15s;
-}
-.btn::after { content: ""; position: absolute; inset: min(0px, (100% - 44px) / 2) 0; }
-.btn:hover { transform: translateY(-1px); }
-.btn .ic { width: 1.3em; height: 1.3em; }
-.btn--orange { background: var(--orange); color: #fff; box-shadow: 0 calc(4 * var(--u)) calc(12 * var(--u)) rgba(242, 106, 33, .3); }
-.btn--orange:hover { background: var(--orange-d); }
-.btn--green { background: var(--green); color: #fff; box-shadow: 0 calc(4 * var(--u)) calc(12 * var(--u)) rgba(31, 154, 78, .25); }
-.btn--white, .btn--ghost { background: #fff; color: var(--ink); box-shadow: 0 calc(4 * var(--u)) calc(14 * var(--u)) rgba(30, 24, 10, .1); }
-
-.logo { display: block; }
-.logo img { width: 100%; height: auto; }
-
-/* ==========================================================
-   ШАПКА
-   ========================================================== */
-.hdr { position: relative; z-index: 20; border-bottom: 1px solid rgba(0, 0, 0, .04); }
-.hdr__in { display: flex; align-items: center; height: calc(52 * var(--u)); padding: 0 calc(50 * var(--u)); }
-.hdr .logo { width: calc(103 * var(--u)); min-width: 96px; }
-.hdr__nav {
-  display: flex;
-  gap: calc(28 * var(--u));
-  margin-left: calc(138 * var(--u));
-  font-size: max(13px, calc(10 * var(--u)));
-  font-weight: 500;
-  color: #333;
-}
-.hdr__nav a { position: relative; padding: calc(10 * var(--u)) 0; transition: color .15s; }
-.hdr__nav a:hover { color: var(--orange); }
-.hdr__nav .is-active { color: var(--ink); }
-.hdr__nav .is-active::before {
-  content: "";
-  position: absolute;
-  left: calc(-12 * var(--u)); top: 50%;
-  width: calc(6 * var(--u)); height: calc(6 * var(--u));
-  min-width: 6px; min-height: 6px;
-  margin-top: calc(-4 * var(--u));
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  background: var(--orange);
-}
-.hdr__nav .is-active::after {
-  content: "";
-  position: absolute;
-  left: calc(-12 * var(--u)); right: 0; bottom: calc(1 * var(--u));
-  height: 2px;
-  background: var(--orange);
-}
-.hdr__cta {
-  margin-left: auto;
-  width: calc(110 * var(--u));
-  height: calc(27 * var(--u)); min-height: 34px;
-  font-size: max(12px, calc(8.6 * var(--u)));
-}
-.hdr__burger { display: none; }
-
 /* ==========================================================
    ПЕРВЫЙ ЭКРАН
    ========================================================== */
@@ -352,14 +249,7 @@ svg { flex: none; }
 .try__media { position: absolute; left: calc(555 * var(--u)); top: calc(7 * var(--u)); width: calc(420 * var(--u)); height: calc(183 * var(--u)); }
 .try__media img { width: 100%; height: 100%; object-fit: cover; }
 
-/* ==========================================================
-   ПОДВАЛ
-   ========================================================== */
-.ftr__in { display: flex; align-items: center; min-height: calc(90 * var(--u)); padding: calc(6 * var(--u)) calc(49 * var(--u)) calc(14 * var(--u)) calc(52 * var(--u)); }
-.ftr .logo { width: calc(103 * var(--u)); min-width: 96px; }
-.ftr__info { margin-left: calc(28 * var(--u)); max-width: calc(330 * var(--u)); font-size: max(12px, calc(8 * var(--u))); line-height: 1.5; color: var(--muted); }
-.ftr__slogan { display: none; }
-.ftr__more { margin-left: auto; display: flex; flex-direction: column; gap: calc(6 * var(--u)); }
+/* ---------- «Другие категории» (мобильная версия) ---------- */
 .more-link { display: inline-flex; align-items: center; gap: calc(5 * var(--u)); font-size: max(12px, calc(8.4 * var(--u))); font-weight: 600; }
 .more-link svg { width: 1.2em; height: 1.2em; }
 .chips { display: flex; flex-wrap: wrap; gap: calc(9 * var(--u)); }
@@ -377,59 +267,6 @@ svg { flex: none; }
 .chips a:hover { border-color: var(--orange); color: var(--orange); }
 
 /* ==========================================================
-   МЕНЮ (мобильное)
-   ========================================================== */
-.menu {
-  position: fixed; inset: 0; z-index: 100;
-  display: flex; flex-direction: column;
-  padding: 12px 20px 0;
-  background: var(--bg);
-  overflow-y: auto;
-}
-.menu[hidden] { display: none; }
-.menu { --u: 1.5px; } /* меню вне .page — свой масштаб */
-.menu > * { width: 100%; max-width: 520px; margin-inline: auto; }
-.menu__top { display: flex; align-items: center; justify-content: space-between; height: 56px; }
-.menu .logo { width: 132px; }
-.menu__close { width: 44px; height: 44px; margin-right: -10px; padding: 11px; border: 0; background: none; color: var(--ink); cursor: pointer; }
-.menu__close svg { width: 100%; height: 100%; }
-.menu__list { margin-top: 26px; display: flex; flex-direction: column; }
-.menu__list a { display: flex; align-items: center; justify-content: space-between; min-height: 52px; font-size: 16px; font-weight: 500; }
-.menu__list svg { width: 16px; height: 16px; }
-.menu__list .is-active { justify-content: flex-start; color: var(--orange); }
-.menu__list .is-active::before { content: ""; width: 7px; height: 7px; margin-right: 10px; border-radius: 50%; background: var(--orange); }
-.menu__list .is-active svg { margin-left: auto; }
-.menu__route {
-  display: inline-flex; align-items: center; gap: 10px;
-  align-self: flex-start;
-  width: auto !important;
-  margin: 28px 0 0 !important;
-  padding: 15px 26px;
-  background: var(--yellow);
-  font-size: 14px; font-weight: 600;
-  transform: rotate(-2deg);
-  -webkit-mask: var(--brush-3) center / 100% 100% no-repeat;
-          mask: var(--brush-3) center / 100% 100% no-repeat;
-}
-.menu__route svg { width: 18px; height: 18px; }
-.menu__photo { position: relative; margin-top: auto !important; padding-top: 40px; height: 300px; flex: none; }
-.menu__photo img {
-  width: 100%; height: 100%; object-fit: cover;
-  -webkit-mask: var(--torn-a) center / 100% 100% no-repeat;
-          mask: var(--torn-a) center / 100% 100% no-repeat;
-}
-.menu__note {
-  position: absolute; right: 0; bottom: 0;
-  width: 58%;
-  padding: 22px 46px 16px 26px;
-  background: var(--yellow);
-  font: 500 28px/1.05 var(--hand);
-  -webkit-mask: var(--brush-1) center / 100% 100% no-repeat;
-          mask: var(--brush-1) center / 100% 100% no-repeat;
-}
-.menu__note svg { position: absolute; right: 16px; top: 40px; width: 28px; height: 28px; }
-
-/* ==========================================================
    ПЛАНШЕТ И ТЕЛЕФОН — мобильный макет (экран шириной 244)
    ========================================================== */
 @media (max-width: 1023px) {
@@ -437,20 +274,6 @@ svg { flex: none; }
   .frame { width: calc(244 * var(--u)); }
   .m-br, .m-br2 { display: inline; }
   .d-br { display: none; }
-
-  /* Шапка */
-  .hdr { position: sticky; top: 0; background: rgba(250, 248, 243, .94); backdrop-filter: blur(8px); }
-  .hdr__in { height: calc(38 * var(--u)); padding: 0 calc(10 * var(--u)) 0 calc(15 * var(--u)); }
-  .hdr .logo { width: calc(77 * var(--u)); }
-  .hdr__nav { display: none; }
-  .hdr__cta { width: auto; height: calc(21 * var(--u)); min-height: 34px; padding: 0 calc(11 * var(--u)); font-size: max(12px, calc(6.6 * var(--u))); }
-  .hdr__burger {
-    display: grid; place-items: center;
-    width: 44px; height: 44px;
-    margin-left: calc(4 * var(--u)); margin-right: -8px;
-    padding: 0; border: 0; background: none; color: var(--ink); cursor: pointer;
-  }
-  .hdr__burger svg { width: max(20px, calc(14 * var(--u))); height: max(20px, calc(14 * var(--u))); }
 
   /* Первый экран */
   .hero__in { height: calc(510 * var(--u)); }
@@ -581,28 +404,4 @@ svg { flex: none; }
     box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
   }
   .mini span svg { width: 1.2em; height: 1.2em; }
-
-  /* Подвал */
-  .ftr__in {
-    position: relative;
-    isolation: isolate;
-    flex-direction: column;
-    justify-content: center;
-    gap: calc(10 * var(--u));
-    min-height: calc(122 * var(--u));
-    margin: calc(34 * var(--u)) calc(17 * var(--u)) calc(26 * var(--u)) calc(8 * var(--u));
-    width: auto;
-    padding: calc(20 * var(--u)) calc(14 * var(--u));
-    text-align: center;
-  }
-  .ftr__in::before {
-    content: ""; position: absolute; inset: 0; z-index: -1;
-    background: var(--yellow);
-    -webkit-mask: var(--brush-2) center / 100% 100% no-repeat;
-            mask: var(--brush-2) center / 100% 100% no-repeat;
-  }
-  .ftr .logo { width: calc(105 * var(--u)); }
-  .ftr__slogan { display: block; font-size: max(14px, calc(9.6 * var(--u))); font-weight: 600; }
-  .ftr__info { order: 3; margin: 0; max-width: none; font-size: max(12px, calc(7.4 * var(--u))); color: #5a5040; }
-  .ftr__more { display: none; }
 }
